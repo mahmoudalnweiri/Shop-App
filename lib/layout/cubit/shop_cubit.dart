@@ -43,6 +43,7 @@ class ShopCubit extends Cubit<ShopStates> {
       token: CacheHelper.getData(key: 'token'),
     ).then((value) {
       homeModel = HomeModel.fromJson(value.data);
+      print('${homeModel!.status}');
       for (var element in homeModel!.data!.products) {
         favorites.addAll({element.id!: element.inFavorites!});
       }
